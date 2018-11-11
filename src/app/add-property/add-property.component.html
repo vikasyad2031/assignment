@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="row" style="margin-top:15px;">
+		<div class="col-md-6 col-md-offset-3">
+			<form #addProperty="ngForm" class="form-horizontal" (submit)="addProp(addProperty)">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="text-center">Add a new property</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group" [class.has-error]="titleControl.touched && titleControl.invalid" [class.has-success]="titleControl.touched && titleControl.valid">
+							<label for="title" class="control-label col-md-2">Title:</label>
+							<div class="col-md-10">
+								<input type="text" id="title" name="title" [(ngModel)]="title" #titleControl="ngModel" class="form-control" required>
+								<span class="help-block" *ngIf="titleControl.touched && titleControl.invalid">Title is required</span>
+							</div>
+						</div>
+						<div class="form-group" [class.has-error]="descControl.touched && descControl.invalid" [class.has-success]="descControl.touched && descControl.valid">
+							<label for="desc" class="control-label col-md-2">Description:</label>
+							<div class="col-md-10">
+								<textarea name="desc" id="desc" [(ngModel)]="desc" #descControl="ngModel" class="form-control" required></textarea>
+								<span class="help-block" *ngIf="descControl.touched && descControl.invalid">Description is required</span>
+							</div>
+						</div>
+						<div class="form-group" [class.has-error]="locationControl.touched && locationControl.invalid" [class.has-success]="locationControl.touched && locationControl.valid">
+							<label for="location" class="control-label col-md-2">Location:</label>
+							<div class="col-md-10">
+								<input type="text" name="location" id="location" [(ngModel)]="location" #locationControl="ngModel" class="form-control" required>
+								<span class="help-block" *ngIf="locationControl.touched && locationControl.invalid">Location is required</span>
+							</div>
+						</div>
+						<div class="form-group" [class.has-error]="priceControl.touched && priceControl.invalid" [class.has-success]="priceControl.touched && priceControl.valid">
+							<label for="price" class="control-label col-md-2">Price:</label>
+							<div class="col-md-10">
+								<input type="text" name="price" id="price" [(ngModel)]="price" #priceControl="ngModel" class="form-control" required>
+								<span class="help-block" *ngIf="priceControl.touched && priceControl.invalid">Price is required</span>
+							</div>
+						</div>
+						<p *ngIf="successMsgStatus" class="text-center" style="color:#a94442;">{{successMsg}}</p>
+					</div>
+					<div class="panel-footer text-center">
+						<button type="submit" class="btn btn-primary" [disabled]="addProperty.invalid">Add Property</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

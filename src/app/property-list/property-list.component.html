@@ -1,0 +1,76 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="page-header">Available Properties:</h2>
+			<p *ngIf="newProp.length == 0">No properties available yet.</p>
+			<div class="property-item" *ngFor="let property of newProp; let i = index">
+				<h4>{{property.property_name}}</h4>
+				<p>{{property.property_desc}}</p>
+				<div class="row">
+					<div class="col-md-4">
+						<label>Location: </label> {{property.property_location}}
+					</div>
+					<div class="col-md-4 glyphicon-he">
+						<label>Price: </label> Rs. {{property.property_price}}
+					</div>
+					<div class="col-md-4">
+						<a class="btn btn-link" (click)="toggleInterest(property.id, i)" data-toggle="modal" data-target="#intModal">Show Interest</a>
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="intModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<span class="close" id="intModalClose" data-toggle="modal" data-target="#intModal">X</span>
+				<p class="alert alert-success">
+					{{intMsg}}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="modal" id="loginModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form class="form-horizontal" #loginForm="ngForm" (submit)="login(loginForm)">
+				<div class="modal-header">
+					<span class="close" data-toggle="modal" data-target="#loginModal">X</span>
+					<h4>Login to your dashboard</h4>
+				</div>
+				<div class="modal-body">	
+					<div class="form-group" [class.has-error]="emailControl.touched && emailControl.errors?.required || emailControl.dirty && emailControl.errors?.email" [class.has-success]="emailControl.valid">
+						<label for="email" class="col-md-2 control-label">Email:</label>
+						<div class="col-md-10">
+							<input type="text" id="email" name="email" [(ngModel)]="email" class="form-control" #emailControl="ngModel" required email>
+							<span class="help-block" *ngIf="emailControl.touched && emailControl.errors?.required">Email is required</span>
+							<span class="help-block" *ngIf="emailControl.dirty && emailControl.errors?.email">Not a valid email address</span>
+						</div>
+					</div>
+					<div class="form-group" [class.has-error]="passwordControl.touched && passwordControl.invalid" [class.has-success]="passwordControl.valid">
+						<label for="password" class="col-md-2 control-label">Password:</label>
+						<div class="col-md-10">
+							<input type="password" id="password" name="password" [(ngModel)]="password" class="form-control" #passwordControl="ngModel" required>
+							<span class="help-block" *ngIf="passwordControl.touched && passwordControl.invalid">Password is required</span>
+						</div>
+					</div>
+					<p *ngIf="loginMsgStatus" class="text-center" style="color:#a94442;">{{loginMsg}}</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+					<div class="row text-right" style="margin-top: 20px;">
+						<div class="col-md-12">
+							<p>Don't have an account? <a class="btn-link" (click)="navToSignup()" style="cursor:pointer;">Sign Up Now</a></p>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div> -->

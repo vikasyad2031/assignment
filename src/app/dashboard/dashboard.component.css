@@ -1,0 +1,20 @@
+#delete-modal .modal-body{
+	padding: 0;
+}
+
+#delete-modal .modal-body p.alert-danger{
+	margin: 0;
+	padding: 10px;
+}
+
+.property-item{
+	padding: 10px 0 0 10px;
+}
+
+.property-item:hover{
+	box-shadow: 0px 0px 5px gray;
+}
+
+hr{
+	border-top: 1px solid #ced1d6;
+}
